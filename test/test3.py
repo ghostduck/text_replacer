@@ -69,7 +69,7 @@ class TestMarkCase3(unittest.TestCase):
         self.str_lst = self.tr.mark()
 
 
-    def test_case1_01_marked_content(self):
+    def test_case3_01_marked_content(self):
         self.assertEqual(self.str_lst[0], "99")
         self.assertEqual(self.str_lst[1], "100")
         self.assertEqual(self.str_lst[2], "nice")

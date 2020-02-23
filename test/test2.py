@@ -22,7 +22,7 @@ class TestMarkCase2(unittest.TestCase):
         self.str_lst = self.tr.mark()
 
 
-    def test_case1_01_marked_content(self):
+    def test_case2_01_marked_content(self):
         self.assertEqual(self.str_lst[0],"1")
         self.assertEqual(self.str_lst[1],"2")
         self.assertEqual(self.str_lst[2],"[YEP thaths good - hey]")

@@ -45,10 +45,11 @@ class TestMarkCase4(unittest.TestCase):
 
         replace_checking_fnc = r
 
+        # Aim: Test skip_blank_line flag
         self.tr.replace_and_output(replace_lst, replace_checking_fnc, "output/", skip_blank_line=True)
 
 
-    def test_case1_01_marked_content(self):
+    def test_case4_01_marked_content(self):
         self.assertEqual(self.str_lst[0],"long1")
         self.assertEqual(self.str_lst[1],"long2")
         self.assertEqual(self.str_lst[2],"long3")
@@ -59,7 +60,8 @@ class TestMarkCase4(unittest.TestCase):
         self.assertEqual(self.str_lst[7],"long8")
         self.assertEqual(self.str_lst[8],"long9")
 
-    def test_case1_02_replace_content(self):
+
+    def test_case4_02_replace_content(self):
         with open("output/test4.txt", 'r') as dest_file:
             output_lines = dest_file.readlines()
 
@@ -81,6 +83,7 @@ class TestMarkCase4(unittest.TestCase):
             self.assertEqual(output_lines[15], "" + "\n")
             self.assertEqual(output_lines[16], "kekw" + "\n")
             self.assertEqual(output_lines[17], "End2" + "\n")
+
 
 if __name__ == '__main__':
     unittest.main()
