@@ -1,0 +1,27 @@
+Test simple line matching (only line with digits only)
+0
+1
+2
+3
+4
+don't replace me
+Some blank lines following, they should be preserved.
+
+
+
+5
+6
+7
+
+The mark function for this test (file) should only mark pure number line
+Just stop at 11
+
+8
+
+9
+10
+
+11
+   3 spaces before the character 3
+
+-- OK. Stop here 12 --

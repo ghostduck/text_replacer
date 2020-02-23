@@ -1,0 +1,59 @@
+Patterns to mark:
+- Full digit line
+
+Special rules: [Trailing space means mismatch]
+- "Mark next" -> Mark next line (but not the current "Mark next" line)
+- "Mark me and next" -> Mark next line and current "Mark me and next" line
+- "Start" -> Mark "Start" line and all lines from now on until seeing "Stop"
+- "Stop" -> Stop the marking of "Start", don't mark "Stop" (unless "Stop" line marked by "Mark next" lines)
+
+Note that marked BLANK line should be "" in marked lines list
+
+This test case shows state detection is possible.
+
+99
+
+100
+
+Mark next
+nice
+
+Mark me and next
+gj
+
+Mark next
+hohoho
+
+Start
+
+300
+Above 300 should not crash
+
+Blank line before
+I am marked too
+
+Stop
+Above Stop line not marked
+
+101
+
+-----
+
+Mark next
+Mark next
+This line should be marked and the last 'Mark next' above
+
+Mark me and next
+Mark me and next
+This line and 2 lines above should be marked
+
+Start
+ok
+Mark next
+Stop
+This line is not marked, but above all marked
+
+-----
+
+102
+Mark next

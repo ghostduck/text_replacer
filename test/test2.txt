@@ -1,0 +1,28 @@
+Test multiple pattern matching (simple matching)
+- start with < and end with >
+- with digits only
+- start with [YEP
+
+YEP - but not marked
+Notme
+
+OK - not marked
+1
+2
+[YEP thaths good - hey]
+
+<likehtml>
+
+<no
+
+
+99k
+
+100
+[NOPE]
+
+<<<<<<ok too>>>>>>
+[YEP this counts too
+[[[[[[YEP no, this does not count
+
+that's all

@@ -1,0 +1,27 @@
+Test simple line matching (only line with digits only)
+REPLACED-0-A
+RB
+RC
+RD
+RE
+don't replace me
+Some blank lines following, they should be preserved.
+
+
+
+RF
+RG
+RH
+
+The mark function for this test (file) should only mark pure number line
+Just stop at 11
+
+RI
+
+RJ
+RK
+
+RL
+   3 spaces before the character 3
+
+-- OK. Stop here 12 --

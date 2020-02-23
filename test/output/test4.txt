@@ -1,0 +1,18 @@
+Simple replace test - replace longX with shortX, will delete some long lines
+This tests feature of skip_blank_line
+
+Start1
+short1
+short2
+kekw
+End1
+
+Start2
+short4
+kekw
+
+short6
+kekw
+
+kekw
+End2
