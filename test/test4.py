@@ -31,7 +31,6 @@ class TestMarkCase4(unittest.TestCase):
             ""
         ]
 
-
         def r(source_line, new_line, state_for_replace, source_line_number, log_file):
             if new_line == "":
                 replace_log_line = "(nil)"
@@ -48,18 +47,16 @@ class TestMarkCase4(unittest.TestCase):
         # Aim: Test skip_blank_line flag
         self.tr.replace_and_output(replace_lst, replace_checking_fnc, "output/", skip_blank_line=True)
 
-
     def test_case4_01_marked_content(self):
-        self.assertEqual(self.str_lst[0],"long1")
-        self.assertEqual(self.str_lst[1],"long2")
-        self.assertEqual(self.str_lst[2],"long3")
-        self.assertEqual(self.str_lst[3],"long4")
-        self.assertEqual(self.str_lst[4],"long5")
-        self.assertEqual(self.str_lst[5],"long6")
-        self.assertEqual(self.str_lst[6],"long7")
-        self.assertEqual(self.str_lst[7],"long8")
-        self.assertEqual(self.str_lst[8],"long9")
-
+        self.assertEqual(self.str_lst[0], "long1")
+        self.assertEqual(self.str_lst[1], "long2")
+        self.assertEqual(self.str_lst[2], "long3")
+        self.assertEqual(self.str_lst[3], "long4")
+        self.assertEqual(self.str_lst[4], "long5")
+        self.assertEqual(self.str_lst[5], "long6")
+        self.assertEqual(self.str_lst[6], "long7")
+        self.assertEqual(self.str_lst[7], "long8")
+        self.assertEqual(self.str_lst[8], "long9")
 
     def test_case4_02_replace_content(self):
         with open("output/test4.txt", 'r') as dest_file:

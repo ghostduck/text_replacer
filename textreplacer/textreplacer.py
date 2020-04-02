@@ -5,8 +5,8 @@ import re
 import os
 
 
-DEFAULT_OUTPUT_LOG_ENCODING="UTF8"
-DEFAULT_OUTPUT_LOG_DIRECTORY_NAME="log"
+DEFAULT_OUTPUT_LOG_ENCODING = "UTF8"
+DEFAULT_OUTPUT_LOG_DIRECTORY_NAME = "log"
 DEFAULT_OUTPUT_FILE_ENCODING = "UTF8"
 DEFAULT_OUTPUT_NEWLINE = "\n"
 
@@ -50,7 +50,6 @@ class TextReplacer():
 
     """
 
-
     def __init__(self, path, encoding, pattern, special_rule=lambda ln, state: (False, None), log_dirname=DEFAULT_OUTPUT_LOG_DIRECTORY_NAME):
         self.path = path
         self.encoding = encoding
@@ -71,7 +70,6 @@ class TextReplacer():
         self.marked_lines_info = None  # just put source line number for now
 
         self.__create_regex()
-
 
     def mark(self):
         self.marked_lines = []
@@ -100,7 +98,6 @@ class TextReplacer():
 
         self.__marked = True
         return self.marked_lines
-
 
     # Most kwargs are for file arguments, others are for special options
     def replace_and_output(self, replace_lst, replace_checking_fnc, output_dir, **kwargs):
@@ -133,7 +130,7 @@ class TextReplacer():
 
         # if True, blank line in replace_lst will not output anything to output file (not even \n)
         # Default option is False
-        skip_blank_line = bool(kwargs.get("skip_blank_line"))  #  User should specify to skip, None -> False (Won't skip)
+        skip_blank_line = bool(kwargs.get("skip_blank_line"))  # User should specify to skip, None -> False (Won't skip)
 
         # Paths
         output_log_path = output_dir + "/" + self.output_log_dirname + "/" + original_script_base + ".log"
@@ -141,8 +138,8 @@ class TextReplacer():
 
         # --- read source file and start replacing marked lines
         with open(self.path, encoding=self.encoding) as source_file, \
-            open(output_log_path, 'w', encoding=output_log_file_encoding) as log_file, \
-            open(output_file_path, 'w', encoding=encoding, newline=output_newline) as dest_file:
+                open(output_log_path, 'w', encoding=output_log_file_encoding) as log_file, \
+                open(output_file_path, 'w', encoding=encoding, newline=output_newline) as dest_file:
 
             for source_line_number, ln in enumerate(source_file, start=1):
 
@@ -164,11 +161,9 @@ class TextReplacer():
                     # unmarked lines (original lines) ends with newline
                     dest_file.write(ln)
 
-
     def __output_dir_setup(self, output_dir):
         os.makedirs(output_dir, exist_ok=True)
         os.makedirs(output_dir + "/" + self.output_log_dirname, exist_ok=True)
 
-
     def __create_regex(self):
-        self.__matched_patterns = [ re.compile(r) for r in self.normal_pattern ]
+        self.__matched_patterns = [re.compile(r) for r in self.normal_pattern]

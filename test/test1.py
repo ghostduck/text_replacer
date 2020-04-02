@@ -45,21 +45,19 @@ class TestMarkCase1(unittest.TestCase):
 
         self.tr.replace_and_output(replace_lst, replace_checking_fnc, "output/")
 
-
     def test_case1_01_marked_content(self):
-        self.assertEqual(self.str_lst[0],"0")
-        self.assertEqual(self.str_lst[1],"1")
-        self.assertEqual(self.str_lst[2],"2")
-        self.assertEqual(self.str_lst[3],"3")
-        self.assertEqual(self.str_lst[4],"4")
-        self.assertEqual(self.str_lst[5],"5")
-        self.assertEqual(self.str_lst[6],"6")
-        self.assertEqual(self.str_lst[7],"7")
-        self.assertEqual(self.str_lst[8],"8")
-        self.assertEqual(self.str_lst[9],"9")
-        self.assertEqual(self.str_lst[10],"10")
-        self.assertEqual(self.str_lst[11],"11")
-
+        self.assertEqual(self.str_lst[0], "0")
+        self.assertEqual(self.str_lst[1], "1")
+        self.assertEqual(self.str_lst[2], "2")
+        self.assertEqual(self.str_lst[3], "3")
+        self.assertEqual(self.str_lst[4], "4")
+        self.assertEqual(self.str_lst[5], "5")
+        self.assertEqual(self.str_lst[6], "6")
+        self.assertEqual(self.str_lst[7], "7")
+        self.assertEqual(self.str_lst[8], "8")
+        self.assertEqual(self.str_lst[9], "9")
+        self.assertEqual(self.str_lst[10], "10")
+        self.assertEqual(self.str_lst[11], "11")
 
     def test_case1_02_replace_content(self):
         with open("output/test1.txt", 'r') as dest_file:

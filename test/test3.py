@@ -19,8 +19,8 @@ def s(ln, state):
     # Handle state from previous line first
     if state is None:  # First line
         state = {
-            "mark_next_line" : False,
-            "in_selection" : False
+            "mark_next_line": False,
+            "in_selection": False
         }
 
     else:
@@ -32,7 +32,6 @@ def s(ln, state):
     # Logic for checking current line
     # Set mark_current_line to True to mark current line
     # Set state["mark_next_line"] to True mark next line
-
 
     if ln == "Mark next":
         state["mark_next_line"] = True
@@ -67,7 +66,6 @@ class TestMarkCase3(unittest.TestCase):
 
         self.tr = TextReplacer("test3.txt", "UTF-8", patterns, special_rule)
         self.str_lst = self.tr.mark()
-
 
     def test_case3_01_marked_content(self):
         self.assertEqual(self.str_lst[0], "99")
