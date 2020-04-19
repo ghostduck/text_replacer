@@ -50,7 +50,7 @@ class TextReplacer():
 
     """
 
-    def __init__(self, path, encoding, pattern, special_rule=lambda ln, state: (False, None), log_dirname=DEFAULT_OUTPUT_LOG_DIRECTORY_NAME):
+    def __init__(self, path, encoding, pattern, special_rule=lambda ln, line_number, state: (False, None), log_dirname=DEFAULT_OUTPUT_LOG_DIRECTORY_NAME):
         self.path = path
         self.encoding = encoding
         # log directory: log files will be generated in /pathto/output/${log_dirname}/
@@ -62,7 +62,7 @@ class TextReplacer():
 
         # only one special rule (method)
         # This method consume one line, return True to mark the line as match
-        # special_rule(ln, state)
+        # special_rule(ln, line_number, state)
         self.special_rule = special_rule
 
         self.__marked = False
@@ -85,7 +85,7 @@ class TextReplacer():
                 # special_rule is like a stateless loop function
                 # updated state needs to be returned for the next call
                 # if state is None, it means it is the first iteration (or not using state at all)
-                match_special_rule, state = self.special_rule(ln, state)
+                match_special_rule, state = self.special_rule(ln, line_number, state)
 
                 # Current design does not allow unmark marked lines.
                 # This can be changed but will break many codes in use (compatability issue)
@@ -144,7 +144,7 @@ class TextReplacer():
             for source_line_number, ln in enumerate(source_file, start=1):
 
                 # Same loop logic as mark()
-                match_special_rule, state_for_readline = self.special_rule(ln, state_for_readline)
+                match_special_rule, state_for_readline = self.special_rule(ln, source_line_number, state_for_readline)
 
                 if any(r.match(ln) for r in self.__matched_patterns) or match_special_rule:
                     source_line, new_line = next(pairs)

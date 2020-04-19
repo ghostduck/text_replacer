@@ -11,7 +11,7 @@ from textreplacer import TextReplacer
 
 
 # Example of using stateful function to loop + mark lines
-def s(ln, state):
+def s(ln, line_number, state):
     # initial setup
     set_to_in_selection = None
     mark_current_line = False
