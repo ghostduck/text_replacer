@@ -90,7 +90,7 @@ class TextReplacer():
                 # Current design does not allow unmark marked lines.
                 # This can be changed but will break many codes in use (compatability issue)
 
-                if any(r.match(ln) for r in self.__matched_patterns) or match_special_rule:
+                if any(r.search(ln) for r in self.__matched_patterns) or match_special_rule:
                     # Each ln should end with newline. I don't think I want it in list of strings
                     # I would rather add a "\n" myself when I need to use the list
                     self.marked_lines.append(ln)
@@ -146,7 +146,7 @@ class TextReplacer():
                 # Same loop logic as mark()
                 match_special_rule, state_for_readline = self.special_rule(ln, source_line_number, state_for_readline)
 
-                if any(r.match(ln) for r in self.__matched_patterns) or match_special_rule:
+                if any(r.search(ln) for r in self.__matched_patterns) or match_special_rule:
                     source_line, new_line = next(pairs)
                     # replace_checking_fnc needs to return the actual line for output
                     # Also, it should do the logging as well

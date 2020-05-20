@@ -14,7 +14,7 @@ class TestMarkCase4(unittest.TestCase):
 
     def setUp(self):
         patterns = [
-            r"^long\d+$",
+            r"long\d+$",
         ]
         self.tr = TextReplacer("test4.txt", "UTF-8", patterns)
         self.str_lst = self.tr.mark()
@@ -56,7 +56,7 @@ class TestMarkCase4(unittest.TestCase):
         self.assertEqual(self.str_lst[5], "long6")
         self.assertEqual(self.str_lst[6], "long7")
         self.assertEqual(self.str_lst[7], "long8")
-        self.assertEqual(self.str_lst[8], "long9")
+        self.assertEqual(self.str_lst[8], "something before long9")
 
     def test_case4_02_replace_content(self):
         with open("output/test4.txt", 'r') as dest_file:
